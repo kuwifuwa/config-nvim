@@ -5,11 +5,11 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
     },
-    config = function (LazyPlugin, opts)
+    opts = function ()
         local luasnip = require("luasnip")
         local cmp = require("cmp")
 
-        cmp.setup({
+        return {
             snippet = {
                 expand = function (args)
                     luasnip.lsp_expand(args.body)
@@ -37,6 +37,6 @@ return {
                     },
                 },
             }),
-        })
+        }
     end,
 }
