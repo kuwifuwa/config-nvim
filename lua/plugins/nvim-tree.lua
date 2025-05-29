@@ -9,7 +9,7 @@ return {
         require("nvim-tree").setup(opts)
 
         local api = require("nvim-tree.api")
-        vim.keymap.set("n", "<F2>", api.tree.toggle)
+        vim.keymap.set("n", "`", api.tree.toggle)
     end,
     lazy = false,
 }
