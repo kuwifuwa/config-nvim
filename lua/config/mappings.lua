@@ -10,5 +10,5 @@ vim.keymap.set("n", "grf", vim.lsp.buf.format)
 -- Diagnostics
 vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float)
 
--- Plugin management
-vim.keymap.set("n", "<Leader><Leader>u", ":Lazy update<CR>")
+-- Lazy
+vim.keymap.set("n", "<Leader><Leader>", ":Lazy<CR>")
