@@ -4,5 +4,5 @@ return {
         vim.lsp.enable("basedpyright")
         vim.lsp.enable("ruff")
         vim.lsp.enable("ts_ls")
-    end
+    end,
 }
