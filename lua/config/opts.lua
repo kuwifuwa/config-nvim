@@ -1,3 +1,4 @@
+-- Disable Netrw: interferes with nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -17,5 +18,8 @@ vim.opt.linebreak = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+-- 'foldmethod' and 'foldexpr' use nvim-treesitter when available
+vim.opt.foldlevelstart = 99
 
 vim.opt.updatetime = 250
