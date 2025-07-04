@@ -4,6 +4,10 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
+-- Command shortcuts
+vim.keymap.set("n", "`", ":write<CR>")
+vim.keymap.set("n", "<Leader>q", ":quit<CR>")
+
 -- *s*wap for nvim-treesitter-textobjects, otherwise unused
 vim.keymap.set("n", "s", "<NOP>")
 vim.keymap.set("n", "S", "<NOP>")
