@@ -4,6 +4,11 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
+    init = function (LazyPlugin)
+        -- Disable Netrw
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
+    end,
     opts = {},
     config = function (LazyPlugin, opts)
         require("nvim-tree").setup(opts)
