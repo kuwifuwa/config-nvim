@@ -17,4 +17,4 @@ vim.keymap.set("n", "grf", vim.lsp.buf.format)
 vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float)
 
 -- Lazy
-vim.keymap.set("n", "<Leader><Leader>", ":Lazy<CR>")
+vim.keymap.set("n", "<Leader>L", ":Lazy<CR>")
