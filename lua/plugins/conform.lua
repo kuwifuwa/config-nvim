@@ -3,6 +3,11 @@ return {
     opts = {
         formatters_by_ft = {
             python = { "ruff_fix", "ruff_organize_imports", lsp_format = "last" },
+
+            javascript = { "biome-check" },
+            typescript = { "biome-check" },
+            json = { "biome-check" },
+            jsonc = { "biome-check" },
         },
         default_format_opts = {
             lsp_format = "fallback",

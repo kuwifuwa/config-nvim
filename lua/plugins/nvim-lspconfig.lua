@@ -14,5 +14,6 @@ return {
         vim.lsp.enable("ruff")
 
         vim.lsp.enable("ts_ls")
+        vim.lsp.enable('biome')
     end,
 }
