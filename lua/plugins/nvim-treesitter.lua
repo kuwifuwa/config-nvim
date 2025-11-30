@@ -42,7 +42,7 @@ return {
             enable = true,
         },
     },
-    config = function (LazyPlugin, opts)
+    config = function(LazyPlugin, opts)
         require("nvim-treesitter.configs").setup(opts)
 
         vim.wo.foldmethod = "expr"

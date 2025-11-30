@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    config = function (LazyPlugin, opts)
+    config = function(LazyPlugin, opts)
         vim.lsp.config("basedpyright", {
             settings = {
                 basedpyright = {
@@ -15,5 +15,8 @@ return {
 
         vim.lsp.enable("ts_ls")
         vim.lsp.enable('biome')
+
+        vim.lsp.enable("autohotkey_lsp")
+        vim.lsp.enable("lua_ls")
     end,
 }

@@ -34,7 +34,7 @@ return {
             },
         },
     },
-    config = function (LazyPlugin, opts)
+    config = function(LazyPlugin, opts)
         require("nvim-treesitter.configs").setup({ textobjects = opts })
     end,
 }

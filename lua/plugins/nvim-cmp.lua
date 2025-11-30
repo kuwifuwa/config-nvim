@@ -6,13 +6,13 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp-signature-help",
     },
-    opts = function ()
+    opts = function()
         local luasnip = require("luasnip")
         local cmp = require("cmp")
 
         return {
             snippet = {
-                expand = function (args)
+                expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end,
             },
