@@ -2,7 +2,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
         formatters_by_ft = {
-            python = { "ruff_fix", "ruff_organize_imports", lsp_format = "last" },
+            python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
 
             javascript = { "biome-check" },
             typescript = { "biome-check" },
