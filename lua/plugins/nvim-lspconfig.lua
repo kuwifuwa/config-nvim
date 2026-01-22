@@ -1,24 +1,10 @@
 return {
     "neovim/nvim-lspconfig",
     config = function(LazyPlugin, opts)
-        -- vim.lsp.config("basedpyright", {
-        --     settings = {
-        --         basedpyright = {
-        --             analysis = {
-        --                 diagnosticMode = "workspace",
-        --             },
-        --             typeCheckingMode = "basic",
-        --         },
-        --     },
-        -- })
-        -- vim.lsp.enable("basedpyright")
         vim.lsp.config("ty", {
             settings = {
                 ty = {
                     diagnosticMode = "workspace",
-                    experimental = {
-                        rename = true,
-                    },
                 },
             },
         })
