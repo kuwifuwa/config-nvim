@@ -1,13 +1,11 @@
 return {
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    'nvim-telescope/telescope.nvim',
     dependencies = {
-        "nvim-lua/plenary.nvim",
+        'nvim-lua/plenary.nvim',
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     opts = {},
-    config = function(LazyPlugin, opts)
-        require("telescope").setup(opts)
-
+    init = function()
         local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<Leader>ff", builtin.find_files)
         vim.keymap.set("n", "<Leader>fg", builtin.live_grep)
