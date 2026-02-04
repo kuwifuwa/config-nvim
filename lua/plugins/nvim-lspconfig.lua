@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    config = function(LazyPlugin, opts)
+    config = function()
         vim.lsp.config("ty", {
             settings = {
                 ty = {
