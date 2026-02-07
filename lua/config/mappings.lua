@@ -7,6 +7,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Frequently used commands.
 vim.keymap.set("n", "`", ":w<CR>")
 vim.keymap.set("n", "<Leader>q", ":qa<CR>")
+vim.keymap.set({ "n", "i", "v" }, "<C-q>", "<Esc><Esc>:close<CR>")
 
 -- *s*wap for nvim-treesitter-textobjects, otherwise unused.
 vim.keymap.set("n", "s", "<NOP>")
