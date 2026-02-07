@@ -1,6 +1,7 @@
 return {
     "saghen/blink.cmp",
     dependencies = { "rafamadriz/friendly-snippets" },
+    build = "cargo build --release",
     opts = {
         keymap = { preset = "super-tab" },
         completion = {
