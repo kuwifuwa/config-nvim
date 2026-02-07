@@ -6,6 +6,7 @@ return {
     event = "VeryLazy",
     opts = {
         provider = "copilot",
+        selection = { hint_display = "none" },
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
