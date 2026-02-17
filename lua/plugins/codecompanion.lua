@@ -6,8 +6,9 @@ return {
         "OXY2DEV/markview.nvim",
     },
     init = function()
+        local codecompanion = require("codecompanion")
         vim.keymap.set({ "n", "v" }, "<Leader>e", ":CodeCompanion<CR>")
-        vim.keymap.set({ "n", "v" }, "<Leader>c", ":CodeCompanionChat<CR>")
+        vim.keymap.set({ "n", "v" }, "<Leader>c", codecompanion.chat)
     end,
     opts = {
         interactions = {
