@@ -24,4 +24,45 @@ vim.opt.incsearch = true
 -- 'foldmethod' and 'foldexpr' use nvim-treesitter when available
 vim.opt.foldlevelstart = 99
 
-vim.opt.updatetime = 250
+vim.opt.updatetime = 500
+
+local lsp_opts_augroup = vim.api.nvim_create_augroup("LspOpts", { clear = true })
+
+-- LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = lsp_opts_augroup,
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client then return end
+
+        -- Semantic Tokens
+        if client.server_capabilities.semanticTokensProvider then
+            vim.lsp.semantic_tokens.start(args.buf, client.id)
+        end
+
+        -- Document Highlight
+        if client.server_capabilities.documentHighlightProvider
+            and not vim.b[args.buf].lsp_document_highlight
+        then
+            vim.b[args.buf].lsp_document_highlight = true
+
+            vim.api.nvim_create_autocmd({ "CursorHold" }, {
+                buffer = args.buf,
+                callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd("CursorMoved", {
+                buffer = args.buf,
+                callback = vim.lsp.buf.clear_references,
+            })
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd("LspDetach", {
+    group = lsp_opts_augroup,
+    callback = function(args)
+        -- Clear references when detaching to prevent stale highlights.
+        vim.lsp.buf.clear_references()
+        vim.b[args.buf].lsp_document_highlight = nil
+    end,
+})
