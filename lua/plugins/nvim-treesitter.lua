@@ -21,8 +21,9 @@ return {
             "markdown_inline",
         }
         vim.api.nvim_create_autocmd("FileType", {
-            pattern = { "toml", "json", "yaml", "gitignore", "markdown", "markdown_inline" },
-            callback = function() vim.treesitter.start() end,
+            callback = function()
+                pcall(vim.treesitter.start)
+            end,
         })
     end,
     opts = {},
