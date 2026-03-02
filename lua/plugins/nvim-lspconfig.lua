@@ -1,13 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
     config = function()
-        vim.lsp.config("ty", {
-            settings = {
-                ty = {
-                    diagnosticMode = "workspace",
-                },
-            },
-        })
         vim.lsp.enable("ty")
         vim.lsp.enable("ruff")
 
