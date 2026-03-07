@@ -16,6 +16,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = -1 -- same as shiftwidth
 vim.opt.smarttab = true
 
+vim.opt.wrap = false
 vim.opt.linebreak = true
 
 vim.opt.hlsearch = false
