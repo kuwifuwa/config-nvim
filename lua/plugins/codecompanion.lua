@@ -4,6 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
         "OXY2DEV/markview.nvim",
+        "ravitemer/codecompanion-history.nvim",
     },
     init = function()
         local codecompanion = require("codecompanion")
@@ -17,5 +18,8 @@ return {
             cmd = { adapter = { name = "copilot", model = "gpt-4o" } },
             background = { adapter = { name = "copilot", model = "gpt-4o" } }
         },
+        extensions = {
+            history = {},
+        }
     },
 }
