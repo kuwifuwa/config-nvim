@@ -8,5 +8,16 @@ return {
         local api = require("nvim-tree.api")
         vim.keymap.set("n", "<C-e>", api.tree.toggle)
     end,
-    opts = {},
+    opts = {
+        on_attach = function(buffer)
+            local api = require("nvim-tree.api")
+
+            local function opts(desc)
+                return { desc = "nvim-tree: " .. desc, buffer = buffer, noremap = true, silent = true, nowait = true }
+            end
+
+            api.map.on_attach.default(buffer)
+            vim.keymap.del("n", "s", opts("Run System"))
+        end
+    },
 }
