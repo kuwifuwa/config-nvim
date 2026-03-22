@@ -67,3 +67,5 @@ vim.api.nvim_create_autocmd("LspDetach", {
         vim.b[args.buf].lsp_document_highlight = nil
     end,
 })
+
+require("config.mappings")
