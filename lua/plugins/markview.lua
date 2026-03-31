@@ -3,8 +3,12 @@ return {
     lazy = false,
     opts = {
         preview = {
-            filetypes = { "markdown", "quarto", "rmd", "typst", "asciidoc", "codecompanion" },
-            ignore_buftypes = {},
+            condition = function(bufnr)
+                local buftype, filetype = vim.bo[bufnr].buftype, vim.bo[bufnr].filetype
+                if buftype == "nofile" and filetype == "codecompanion" then
+                    return true
+                end
+            end,
         }
     }
 }
