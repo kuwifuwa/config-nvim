@@ -36,18 +36,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if not client then return end
 
-        -- Semantic Tokens
-        if client.server_capabilities.semanticTokensProvider then
-            vim.lsp.semantic_tokens.start(args.buf, client.id)
-        end
-
-        -- Document Highlight
+        -- Enable document highlights
         if client.server_capabilities.documentHighlightProvider
             and not vim.b[args.buf].lsp_document_highlight
         then
             vim.b[args.buf].lsp_document_highlight = true
 
-            vim.api.nvim_create_autocmd({ "CursorHold" }, {
+            vim.api.nvim_create_autocmd("CursorHold", {
                 buffer = args.buf,
                 callback = vim.lsp.buf.document_highlight,
             })
@@ -62,7 +57,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("LspDetach", {
     group = lsp_opts_augroup,
     callback = function(args)
-        -- Clear references when detaching to prevent stale highlights.
+        -- Remove document highlights when LSP detaches
         vim.lsp.buf.clear_references()
         vim.b[args.buf].lsp_document_highlight = nil
     end,
