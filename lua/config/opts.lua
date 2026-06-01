@@ -27,11 +27,11 @@ vim.opt.foldlevelstart = 99
 
 vim.opt.updatetime = 500
 
-local lsp_opts_augroup = vim.api.nvim_create_augroup("LspOpts", { clear = true })
+local lsp_augroup = vim.api.nvim_create_augroup("LspOpts", { clear = true })
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = lsp_opts_augroup,
+    group = lsp_augroup,
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if not client then return end
@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("LspDetach", {
-    group = lsp_opts_augroup,
+    group = lsp_augroup,
     callback = function(args)
         -- Remove document highlights when LSP detaches
         vim.lsp.buf.clear_references()
